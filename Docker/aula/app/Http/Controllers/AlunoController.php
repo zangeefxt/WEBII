@@ -3,19 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Repositories\EixoRepository;
-use App\Models\Eixo;
+use app\repositories\AlunoRepository;
 
-class EixoController extends Controller
+class AlunoController extends Controller
 {
-    
     protected $repository;
-   
-    public function __construct(){
-        $this->repository = new EixoRepository();
 
-    
+    public function __construct(){
+        $this->repository = new Alunorepository();
     }
+
     /**
      * Display a listing of the resource.
      */
@@ -38,11 +35,7 @@ class EixoController extends Controller
      */
     public function store(Request $request)
     {
-        $Eixo = new Eixo();
-        $Eixo->nome = mb_strtoupper($request->nome, "UTF8");
-        $this->repository->save($Eixo);
-
-        return "OK - STORE";
+        //
     }
 
     /**
@@ -50,8 +43,7 @@ class EixoController extends Controller
      */
     public function show(string $id)
     {
-        $data = $this->repository->findById($id);
-        return $data;
+        //
     }
 
     /**
@@ -59,16 +51,7 @@ class EixoController extends Controller
      */
     public function edit(string $id)
     {
-        $objEixo = $this->repository->findById($id);
-
-        if(isset($objEixo)){
-            $objEixo->nome = mb_strtoupper($request->nome, "UTF8");
-            $this->repository->save($objEixo);
-
-            return "OK - UPDATE";
-        }
-
-        return "ERRO - UPDATE";
+        //
     }
 
     /**
@@ -84,10 +67,6 @@ class EixoController extends Controller
      */
     public function destroy(string $id)
     {
-        if($this->repository->delete($id)){
-            return "OK - DELETE";
-        }
-
-        return "NO - DELETE";
+        //
     }
 }

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->foreign('resource_id')->references('id')->on('resources');
             $table->primary(['role_id', 'resource_id']);
             $table->boolean('permission');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

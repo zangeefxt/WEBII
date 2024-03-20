@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return "<h1>VASCO MAIOR QUE O FOGUINHO </h1>";
 });
 
 Route::resource('/eixo', 'App\Http\Controllers\EixoController');
+route::resource('/aluno', 'App\Http\Controllers\AlunoController');
